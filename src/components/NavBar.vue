@@ -72,7 +72,7 @@ export default{
   color: black;
 }
 #navbar a.activeB {
-    background-color:#FFC107 !important;
+    background-color:#FFC107 !important; /* 7952B3 */
     color: black !important;
     height: 20px !important;
     width: 22px !important;
