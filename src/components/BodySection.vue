@@ -1,74 +1,30 @@
 <template>
   <div class="content">
-  <div class="contentcontainer">
-    <br>
     <table>
       <tr>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
+        <td class="halfLeft">
+          <div class="filtered_search"></div>
+          <div class="contentcontainer">
+            <ComElement/>
+            <ComElement/>
+            <ComElement/>
+            <ComElement/>
+            <ComElement/>
+            <ComElement/>
+            <ComElement/>
+            <ComElement/>
+            <ComElement/>
+            <ComElement/>
+            <ComElement/>
+            <ComElement/>
+            <ComElement/>
+            <ComElement/>
+          </div>
+        </td>
+        <td class="halfRight">
+        </td>
       </tr>
-      <tr>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-      </tr>
-      <tr>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-      </tr>
-      <tr>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-      </tr>
-      <tr>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-      </tr>
-      <tr>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-      </tr>
-      <tr>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-      </tr>
-      <tr>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-      </tr>
-      <tr>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-        <td><ComElement/></td>
-      </tr>
-      
     </table>
-  </div>
   </div>
 </template>
 
@@ -87,14 +43,49 @@ export default {
 
 <style>
 .content {
-  background-color: #E1E8EB;
-  display: flex;
-  justify-content: center;
+  z-index: 1 !important;
+  scale: 0.85;
+  margin-top: -4vh;
 }
-.sticky + .content {
-  padding-top: 60px;
+.filtered_search{
+  margin-left: 1vh;
+  width: 125vh;
+  height: 40vh;
+  background-color: black;
+  border-radius: 2vh;
+  margin-right: 3.5%;
+}
+.halfLeft{
+  width: 128vh;
+}
+.halfRight{
+  width: 80vh;
+  border-radius: 2vh;
+  background-color: black;
+}
+.frd{
+  border-radius: 2vh;
+  background-color: black;
+  height: 100%;
+}
+.frl{
+  border-radius: 2vh;
+  background-color: black;
+  height: 100%;
+}
+.insideRight{
+  margin-left: 4vh;
 }
 .contentcontainer{
-  margin-top: 6vh;
+  margin-top: 2vh;
+  width: 128vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
+table{
+  margin-left: auto;
+  margin-right: auto;
+}
+
 </style>

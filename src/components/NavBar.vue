@@ -1,42 +1,60 @@
 <template>
+  <div class="allstick">
   <div id="navbar" ref="navbar">
     <div id="containerx">
-        <a id="activeB" ref="activeB" class="activeB" @click="openSideMenu" href="javascript:void(0)">
-          <div class="mbfont">≡</div>
-        </a>
-        <a href="javascript:void(0)">New</a>
-        <a href="javascript:void(0)">Popular</a>
-        <a href="javascript:void(0)">Categories</a>
-        <div id="wrapsearch">
-            <div><input type="text" id="search_id" placeholder="Looking for something ?"></div>
-            <div id="search_btn">
-                <svg id="search_holder" style="width: 32px;height: 32px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50">
-                    <g id="surface150425">
-                        <path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,75.686276%,2.745098%);fill-opacity:1;" d="M 21 3 C 11.601562 3 4 10.601562 4 20 C 4 29.398438 11.601562 37 21 37 C 24.355469 37 27.460938 36.015625 30.09375 34.34375 L 42.375 46.625 L 46.625 42.375 L 34.5 30.28125 C 36.679688 27.421875 38 23.878906 38 20 C 38 10.601562 30.398438 3 21 3 Z M 21 7 C 28.199219 7 34 12.800781 34 20 C 34 27.199219 28.199219 33 21 33 C 13.800781 33 8 27.199219 8 20 C 8 12.800781 13.800781 7 21 7 Z M 21 7 "/>
-                    </g>
-                </svg>
-            </div>
-        </div>
+      <a id="activeB" ref="activeB" class="activeB" @click="openSideMenu" href="javascript:void(0)"></a>
+      <a @mouseover="showcat" @mouseleave="hidecat" ref="btncateg">Categories</a>
+      <div id="wrapsearch">
+        <div><input type="text" id="search_id" placeholder="Looking for something ?"></div>
+      </div>
+      <div id="searchBtn">src</div>
     </div>
   </div>
-  <div class="sidenav" ref="mySidenav">
-    <span class="SideNavClose" @click="closeSideMenu">&times;</span>
-    <a href="javascript:void(0)" class="SideNavItem">Link 1</a>
-    <a href="javascript:void(0)" class="SideNavItem">Link 2</a>
-    <a href="javascript:void(0)" class="SideNavItem">Link 3</a>
+  <div class="drpdwn" ref="drpdwn" @mouseover="showcat2"  @mouseleave="hidecat2">
+    <div class="drpdwncntnt" ref="drpdwncntnt">
+      Lurem Ipsum Lurem Ipsum Lurem Ipsum Lurem Ipsum Lurem Ipsum Lurem Ipsum Lurem Ipsum Lurem Ipsum Lurem Ipsum
+      Lurem Ipsum Lurem Ipsum Lurem Ipsum Lurem Ipsum Lurem Ipsum Lurem Ipsum Lurem Ipsum Lurem Ipsum Lurem Ipsum
+      Lurem Ipsum Lurem Ipsum Lurem Ipsum Lurem Ipsum Lurem Ipsum Lurem Ipsum Lurem Ipsum Lurem Lurem Ipsum Lurem
+      Lurem Ipsum Lurem Ipsum Lurem Ipsum Lurem Ipsum Lurem Ipsum Lurem Ipsum Lurem Ipsum Lurem Ipsum Lurem Ipsum 
+    </div>
   </div>
+</div>
 </template>
 
 
 <script>
+let x = false;
 export default{
   name:"NavBar",
   methods:{
-    openSideMenu() {
-      this.$refs.mySidenav.style.width = "250px";
+    showcat(){
+      x=true;
+      this.$refs.drpdwn.style.height = "24vh";
+      this.$refs.btncateg.style.backgroundColor = "#cd104d";
+      this.$refs.btncateg.style.color = "black";
+      this.$refs.drpdwncntnt.style.top = "0";
     },
-    closeSideMenu() {
-      this.$refs.mySidenav.style.width = "0";
+    showcat2(){
+      if(x==true){
+        this.$refs.drpdwn.style.height = "24vh";
+        this.$refs.btncateg.style.backgroundColor = "#cd104d";
+        this.$refs.btncateg.style.color = "black";
+        this.$refs.drpdwncntnt.style.top = "0";
+      }
+    },
+    hidecat(){
+      this.$refs.drpdwncntnt.style.top = "-24vh";
+      this.$refs.drpdwn.style.height = "0vh";
+      this.$refs.btncateg.style.backgroundColor = "black";
+      this.$refs.btncateg.style.color ="#cd104d";
+   
+    },
+    hidecat2(){
+      x=false
+      this.$refs.drpdwncntnt.style.top = "-24vh";
+      this.$refs.drpdwn.style.height = "0vh";
+      this.$refs.btncateg.style.backgroundColor = "black";
+      this.$refs.btncateg.style.color ="#cd104d";
     }
   },
   created:
@@ -50,39 +68,40 @@ export default{
 
 <style >
 #navbar {
-  z-index: 10;
+  z-index: 11;
   position: fixed;
   top: 0;
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
-  background-color: #343A40;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  background-color: /*#343A40*/black;
+  box-shadow: rgba(215, 43, 118, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  
 }
 #navbar a {
+  cursor: pointer;
   float: left;
   display: block;
-  color: #FFC107;
+  color: #cd104d;
   text-align: center;
-  padding: 14px 16px;
+  padding: 2vh 3vh;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 2.3vh !important;
 }
 #navbar a:hover {
-  background-color: #E1E8EB;
+  background-color: #cd104d;
   color: black;
 }
 #navbar a.activeB {
-    background-color:#FFC107 !important; /* 7952B3 */
-    color: black !important;
-    height: 20px !important;
-    width: 22px !important;
-    display: flex !important;
-    align-items: center !important; 
-    justify-content: center !important;
-}
-#navbar a.activeB:hover {
-  background-color: #E1E8EB !important;
-  color: black !important;
+  background-color:#FFC107 !important;
+  background: url(./../assets/colastream.png); /* 7952B3 */
+  background-position: center;
+  background-size: 95% 90%;
+  background-repeat: no-repeat;
+  filter:contrast(100%);
+  padding-top: 2.4vh;
+  padding-bottom: 2.4vh;
+  height: 1.92vh !important;
+  width: 16vh !important;
 }
 #containerx{
   display: flex;
@@ -91,80 +110,70 @@ export default{
 #search_id{
   outline: none !important;
   box-shadow: none !important;
-  background-color: #343A40;
-  height: 26px;
-  width: 25vw !important;
-  font-size: 17px;
-  color: #FFC107;
+  background-color: black;
+  width: 12vw !important;
+  min-width: 180px !important;
+  font-size: 2.2vh !important;
+  color: grey;
   display: flex;
   justify-content: safe center;
-  border: solid 2px #343A40;
-  margin-left: 4px;
+  border: solid 2px black;
+  margin-left: 1vw;
   text-decoration: none;
+  transition: width 300ms;
 }
-#search_btn{
-  height: 32px;
-  width: 32px;
-  position: relative;
-  left: 0.3rem;
-  border-radius: 5px;
-  margin-right: 10px;
+#search_id:focus{
+  width: 25vw !important;
 }
-#search_btn:hover{
-  cursor: pointer;
+#search_id:focus::placeholder{
+  opacity: 0;
 }
 #wrapsearch{
   display: flex;
+  height: 4.3vh;
+  min-height: 17px;
   align-items: center;
-  border: solid 2px #FFC107;
-  border-radius: 5px;
-  height: fit-content;
+  border: solid 2px #cd104d;
+  border-radius:  2vh 0 0 2vh ;
   margin-left: 10px;
 }
-/* Menu Button */
-.mbfont{
-    font-size: 1.8em !important;
-    font-weight: bold !important;
+#searchBtn{
+  height: 4.3vh;
+  min-height: 17px;
+  width: 5vh;
+  background: url("./../assets/search.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80% 80%;
+  border: solid 2px #cd104d;
+  color: rgba(0,0,0, 0);
+  padding-left: 10px;
+  border-radius: 0 2vh 2vh 0;
+  background-color: #cd104d;
 }
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 12;
-  top: 0;
-  left: 0;
-  background-color: #FFC107;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-}
-.SideNavItem{
-  width: 100%;
-  border: none;
-  text-align: left;
-  background-color: rgba(0, 0, 0, 0);
-}
-.SideNavItem:hover{
-  background-color: #E1E8EB;
-}
-.sidenav .SideNavItem {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 14px !important;
-  color: black;
-  display: block;
-  transition: 0.3s;
-}
-.SideNavClose{
-  font-size: 40px;
-  position:absolute;
-  top: 0;
-  right: 0;
-  margin-right: 10px;
-
-}
-.SideNavClose:hover{
+#searchBtn:hover{
   cursor: pointer;
-  color: #E1E8EB;
+}
+.mbfont{
+  font-size: 1.8em !important;
+  font-weight: bold !important;
+}
+
+.drpdwn{
+  position: fixed;
+  z-index: 10;
+  top: 6.8vh;
+  background-color: black;
+  height: 0;
+  font-size: 2.2vh !important;
+  color: grey;
+  margin-left: 22vh;
+  width: 60vh;
+  transition: height 200ms;
+}
+.drpdwncntnt{
+  position: relative;
+  top: -24vh;
+  transition: top 200ms;
 }
 </style>
